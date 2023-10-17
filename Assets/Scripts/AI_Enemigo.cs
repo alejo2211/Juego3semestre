@@ -13,6 +13,7 @@ public class AI_Enemigo : MonoBehaviour
     {
         target = PlayerController.singleton.transform;
         
+
     }
     
     
@@ -20,6 +21,7 @@ public class AI_Enemigo : MonoBehaviour
     {
 
         agente.SetDestination(target.position);
+       
     }
 
     private void OnTriggerEnter(Collider other)

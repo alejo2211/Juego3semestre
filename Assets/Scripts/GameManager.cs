@@ -30,9 +30,9 @@ public class GameManager : MonoBehaviour
         {
             yield return new WaitForSeconds(2);
             Vector3 pos;
-            pos.x = Random.Range(-5, 50);
-            pos.y = 0;
-            pos.z = -49.09f;
+            pos.x = Random.Range(1, 5);
+            pos.y = 2.36f;
+            pos.z = -4.357f;
             GameObject newEnemy = Instantiate(Resources.Load("Enemigo"), pos, Quaternion.identity) as GameObject;
         }
         yield return new WaitForSeconds(3f);

@@ -20,9 +20,9 @@ public class Puntero : MonoBehaviour
             if (hit.transform.CompareTag("ground"))
             {
                 transform.LookAt(hit.point);
-            
+
             }
-            }
+        }
         
            
     }
