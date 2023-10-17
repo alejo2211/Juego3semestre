@@ -8,6 +8,8 @@ TagManager:
   - Enemi
   - target
   - bala
+  - CinemachineTarget
+  - ground
   layers:
   - Default
   - TransparentFX

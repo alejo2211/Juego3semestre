@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public GameObject mensajePanel;
     public int orcos;
     public int orcosTotales =10;
+    public int orcosObjetivos = 10;
 
     public void Awake()
     {
@@ -40,42 +41,17 @@ public class GameManager : MonoBehaviour
     public void ContadorEnemigos()
     {
         Puntosenemigos++;
-        if (Puntosenemigos == 10)
+        if (Puntosenemigos == orcosObjetivos)
         {
-
+            orcosTotales = Mathf.RoundToInt(Mathf.Ceil(orcosTotales * 1.5f));
+            orcosObjetivos += orcosTotales;
             StartCoroutine(SpawEnemies(orcosTotales));
             mensajePanel.SetActive(true);
 
         }
-
-        if (Puntosenemigos == 20)
-        {
-            StartCoroutine(SpawEnemies(orcosTotales));
-            mensajePanel.SetActive(true);
-        }  
-        
-        if (Puntosenemigos == 30)
-        {
-            StartCoroutine(SpawEnemies(orcosTotales));
-            mensajePanel.SetActive(true);
-        } 
-        
-        if (Puntosenemigos == 40)
-        {
-            StartCoroutine(SpawEnemies(orcosTotales));
-            mensajePanel.SetActive(true);
-        } 
-        
-        if (Puntosenemigos == 50)
-        {
-            StartCoroutine(SpawEnemies(orcosTotales));
-            mensajePanel.SetActive(true);
-        }
-
-        
-
         contadorEnemigos.text = Puntosenemigos.ToString();
 
 
     }
-    }
+   
+}

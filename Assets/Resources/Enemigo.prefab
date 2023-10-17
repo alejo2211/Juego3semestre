@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2196785619711754190}
   - component: {fileID: 2196785619711754191}
   - component: {fileID: 3530747444985058023}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Enemigo
   m_TagString: enemi
   m_Icon: {fileID: 0}
@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   agente: {fileID: 2196785619711754191}
+  "da\xF1o": 10
 --- !u!195 &2196785619711754191
 NavMeshAgent:
   m_ObjectHideFlags: 0
