@@ -51,6 +51,6 @@ public class Shot : MonoBehaviour
             Destroy(newBullet, 5);
         }
     }
+        
 
-    
 }
