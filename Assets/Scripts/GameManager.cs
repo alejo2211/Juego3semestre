@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public int orcos;
     public int orcosTotales =10;
     public int orcosObjetivos = 10;
-
+    public Transform[] spawnPoints;
     public void Awake()
     {
         singleton = this;
@@ -30,9 +30,7 @@ public class GameManager : MonoBehaviour
         {
             yield return new WaitForSeconds(2);
             Vector3 pos;
-            pos.x = Random.Range(1, 5);
-            pos.y = 2.36f;
-            pos.z = -4.357f;
+            pos = spawnPoints[Random.Range(0, spawnPoints.Length)].position; 
             GameObject newEnemy = Instantiate(Resources.Load("Enemigo"), pos, Quaternion.identity) as GameObject;
         }
         yield return new WaitForSeconds(3f);

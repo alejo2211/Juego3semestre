@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public int vidaMaximaPlayer = 100;
     private int vidaActualPlayer;
     public Text textoVida;
-    public float velocidadRotacion = 5.0f;
+    
     private void Awake()
     {
         singleton = this;

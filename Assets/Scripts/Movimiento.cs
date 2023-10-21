@@ -12,6 +12,7 @@ public class Movimiento : MonoBehaviour
     public float velocidad;
     public Vector3 movimiento;
     public Vector3 direccion;
+    public Animator animator;
     void Start()
     {
         izquierda.action.Enable();
@@ -25,12 +26,17 @@ public class Movimiento : MonoBehaviour
         j2 = derecha.action.ReadValue<Vector2>();
         movimiento.x = j1.x;
         movimiento.z = j1.y;
+        movimiento.y = 0;
         transform.Translate(movimiento * velocidad * Time.deltaTime,Space.World);
+        movimiento = transform.rotation * movimiento;
+        
+        animator.SetFloat("Xspeed", movimiento.x);
+        animator.SetFloat("Yspeed", movimiento.z);
         direccion.x = j2.x;
         direccion.z= j2.y;
         if (direccion.sqrMagnitude>0)
         {
-            transform.forward = direccion.normalized;
+            transform.forward = Vector3.Lerp(transform.forward, direccion.normalized, velocidad * Time.deltaTime*5);
         }       
     }
 }
