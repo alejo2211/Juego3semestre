@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public int orcosTotales =10;
     public int orcosObjetivos = 10;
     public Transform[] spawnPoints;
+    public int oleadas;
     public void Awake()
     {
         singleton = this;
@@ -46,6 +47,7 @@ public class GameManager : MonoBehaviour
             orcosObjetivos += orcosTotales;
             StartCoroutine(SpawEnemies(orcosTotales));
             mensajePanel.SetActive(true);
+            oleadas++;
 
         }
         contadorEnemigos.text = Puntosenemigos.ToString();

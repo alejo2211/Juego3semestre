@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
 
   
     public int vidaMaximaPlayer = 100;
-    private int vidaActualPlayer;
+    public int vidaActualPlayer;
     public Text textoVida;
     
     private void Awake()
@@ -27,7 +27,10 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-     
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            RecibirDaño(5);
+        }
 
     }
    
@@ -44,7 +47,7 @@ public class PlayerController : MonoBehaviour
 
             Destroy(gameObject);
 
-            SceneManager.LoadScene("GameOver");
+            DatosUsuario.singleton.ActualizarDatos(GameManager.singleton.Puntosenemigos,GameManager.singleton.oleadas);
 
 
         }
