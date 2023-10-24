@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class BarraDeVIda : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class BarraDeVIda : MonoBehaviour
     public float vidaMaxima=100;
     public Text saludTexto;
     public CanvasGroup sangre;
+    public Animator animatorMuerte;
     
     void Update()
     {
@@ -29,8 +31,19 @@ public class BarraDeVIda : MonoBehaviour
     public void RecibirGolpe(float golpe)
     {
         vidaActual -= golpe;
+        if (vidaActual==0)
+        {
+            animatorMuerte.SetTrigger("muerteElfo");
+            StartCoroutine(MuerteEscena());
+        }
 
         sangre.alpha = 1;
+    }
+
+    IEnumerator MuerteEscena()
+    {
+        yield return new WaitForSeconds(4f);
+        SceneManager.LoadScene("GameOver");
     }
 }
 

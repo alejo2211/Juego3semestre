@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -405,6 +405,7 @@ MonoBehaviour:
     m_Reference: {fileID: 1060327102775889654, guid: 598dd0e2140e2f844a5115fa411b020e,
       type: 3}
   presionado: 0
+  audioDisparo: {fileID: 244979779}
 --- !u!95 &244979776 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 9ef9d82c2b470064d89cce611275d62f,
@@ -440,6 +441,103 @@ MonoBehaviour:
   vidaMaxima: 100
   saludTexto: {fileID: 972350122}
   sangre: {fileID: 1228695004}
+  animatorMuerte: {fileID: 244979776}
+--- !u!82 &244979779
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244979769}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 408158803e3da0a4f872f56cb58bcf57, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.476
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &302619694
 GameObject:
   m_ObjectHideFlags: 0
@@ -753,7 +851,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.31
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1145,10 +1243,10 @@ RectTransform:
   m_Father: {fileID: 30064093}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 166, y: -35.391}
-  m_SizeDelta: {x: 350.4727, y: 35}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -175.23633, y: -39.524277}
+  m_SizeDelta: {x: 350.47266, y: 51.5302}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &767332453
 GameObject:
@@ -1577,6 +1675,7 @@ MonoBehaviour:
     m_Reference: {fileID: 1060327102775889654, guid: 598dd0e2140e2f844a5115fa411b020e,
       type: 3}
   presionado: 0
+  audioDisparo: {fileID: 0}
 --- !u!1 &1078573256
 GameObject:
   m_ObjectHideFlags: 0
@@ -2413,9 +2512,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 20.725, y: -35.391}
+  m_AnchoredPosition: {x: 68.66265, y: -75.57665}
   m_SizeDelta: {x: 40.9503, y: 80.3712}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 1.6706307, y: -0.00000009685755}
 --- !u!222 &2107985987
 CanvasRenderer:
   m_ObjectHideFlags: 0

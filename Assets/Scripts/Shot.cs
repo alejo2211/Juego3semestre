@@ -11,7 +11,7 @@ public class Shot : MonoBehaviour
     private float shotRateTime = 0;
     public InputActionProperty dispararBoton;
     public bool presionado;
-
+    public AudioSource audioDisparo;
     private void Start()
     {
         dispararBoton.action.performed += Disparar;
@@ -43,6 +43,7 @@ public class Shot : MonoBehaviour
         print("disparando");
         if (Time.time > shotRateTime)
         {
+            audioDisparo.Play();
             GameObject newBullet;
             newBullet = Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
             newBullet.GetComponent<Rigidbody>().AddForce(spawnPoint.forward * shotForce);
