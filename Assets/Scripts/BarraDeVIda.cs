@@ -29,6 +29,9 @@ public class BarraDeVIda : MonoBehaviour
     public void RecibirGolpe(float golpe)
     {
         vidaActual -= golpe;
+
         sangre.alpha = 1;
     }
 }
+
+

@@ -50,3 +50,9 @@ public class AI_Enemigo : MonoBehaviour
 
     }
 }
+    public enum Estado
+    {   
+        atacando = 0,
+        muerto= 1,
+    }
+
