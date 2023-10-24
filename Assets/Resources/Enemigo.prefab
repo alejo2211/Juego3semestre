@@ -1397,7 +1397,8 @@ GameObject:
   - component: {fileID: 1881065151070608911}
   - component: {fileID: 4368116761399453581}
   - component: {fileID: 7719678658892820239}
-  - component: {fileID: 5281119053849019513}
+  - component: {fileID: 8390015506911834007}
+  - component: {fileID: 4728855423730804236}
   m_Layer: 0
   m_Name: Enemigo
   m_TagString: Untagged
@@ -1459,6 +1460,8 @@ MonoBehaviour:
   target: {fileID: 0}
   agente: {fileID: 4368116761399453581}
   "da\xF1o": 0
+  animator: {fileID: 3239506514215655617}
+  inIdle: 1
 --- !u!195 &4368116761399453581
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1497,8 +1500,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!65 &5281119053849019513
-BoxCollider:
+--- !u!135 &8390015506911834007
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1508,8 +1511,21 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.813516, z: 0.3506317}
-  m_Center: {x: 0, y: 0.42068964, z: 0.029556274}
+  m_Radius: 0.60765135
+  m_Center: {x: 0, y: 0.10765137, z: 0}
+--- !u!114 &4728855423730804236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8169237781377112065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fadcc81495beb8541a5508fca3f62614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &8258087927738743642
 GameObject:
   m_ObjectHideFlags: 0

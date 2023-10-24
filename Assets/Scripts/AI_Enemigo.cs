@@ -9,6 +9,9 @@ public class AI_Enemigo : MonoBehaviour
     public Transform target;
     public NavMeshAgent agente;
     public int daño;
+    public Animator animator;
+    public bool inIdle;
+  
     private void Start()
     {
         target = PlayerController.singleton.transform;
@@ -19,8 +22,9 @@ public class AI_Enemigo : MonoBehaviour
     
     void Update()
     {
-
+        StartCoroutine(Idle());
         agente.SetDestination(target.position);
+       
        
     }
 
@@ -34,10 +38,15 @@ public class AI_Enemigo : MonoBehaviour
         }
         
     }
-
-    public void Ataque()
-    {
-        PlayerController.singleton.RecibirDaño(daño);
-    }
     
+    IEnumerator Idle()
+    {
+        yield return new WaitForSeconds(3);
+        if (inIdle == true)
+        {
+           
+            animator.SetBool("inidle",true);
+        }
+
+    }
 }

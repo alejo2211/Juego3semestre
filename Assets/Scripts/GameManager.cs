@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public int orcosObjetivos = 10;
     public Transform[] spawnPoints;
     public int oleadas;
+    public AudioSource audioOrco;
     public void Awake()
     {
         singleton = this;
@@ -21,11 +22,13 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         StartCoroutine(SpawEnemies(orcosTotales));
+        audioOrco.Play();
 
     }
 
     IEnumerator SpawEnemies(int enemies)
     {
+
         yield return new WaitForSeconds(2);
         mensajePanel.SetActive(false);
         for (int orcos = 0; orcos < orcosTotales; orcos++)
@@ -46,6 +49,7 @@ public class GameManager : MonoBehaviour
             orcosTotales = Mathf.RoundToInt(Mathf.Ceil(orcosTotales * 1.5f));
             orcosObjetivos += orcosTotales;
             StartCoroutine(SpawEnemies(orcosTotales));
+            audioOrco.Play();
             mensajePanel.SetActive(true);
             oleadas++;
 
