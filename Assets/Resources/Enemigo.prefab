@@ -1142,7 +1142,7 @@ MonoBehaviour:
   inIdle: 1
   estado: 0
   distanciaAtacar: 1.2
-  vidaEnemigo: 10
+  vidaEnemigo: 3
   muerteOrcoAudio: {fileID: 5414764221293139889}
 --- !u!195 &1404734341637528675
 NavMeshAgent:
