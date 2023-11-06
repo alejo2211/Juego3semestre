@@ -12,6 +12,7 @@ public class Shot : MonoBehaviour
     public InputActionProperty dispararBoton;
     public bool presionado;
     public AudioSource audioDisparo;
+
     private void Start()
     {
         dispararBoton.action.performed += Disparar;
@@ -41,6 +42,7 @@ public class Shot : MonoBehaviour
     public void Disparar(InputAction.CallbackContext context)
     {
         print("disparando");
+       
         if (Time.time > shotRateTime)
         {
             audioDisparo.Play();

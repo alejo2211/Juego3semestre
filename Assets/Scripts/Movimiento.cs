@@ -10,9 +10,18 @@ public class Movimiento : MonoBehaviour
     public InputActionProperty izquierda;
     public InputActionProperty derecha;
     public float velocidad;
+    public float velocidadRotacion;
     public Vector3 movimiento;
     public Vector3 direccion;
     public Animator animator;
+    public Transform camaraMando;
+    public float velocidadH;
+    public float velocidadY;
+    public Transform rotaCamera;
+    public float velocidadRotacionCamera;
+    public Vector2 angulos;
+    private float t;
+    
     void Start()
     {
         izquierda.action.Enable();
@@ -27,16 +36,21 @@ public class Movimiento : MonoBehaviour
         movimiento.x = j1.x;
         movimiento.z = j1.y;
         movimiento.y = 0;
-        transform.Translate(movimiento * velocidad * Time.deltaTime,Space.World);
         movimiento = transform.rotation * movimiento;
-        
+        transform.Translate( movimiento * velocidad * Time.deltaTime,Space.World);
         animator.SetFloat("Xspeed", movimiento.x);
         animator.SetFloat("Yspeed", movimiento.z);
         direccion.x = j2.x;
         direccion.z= j2.y;
+
+
+        
+        
         if (direccion.sqrMagnitude>0)
         {
-            transform.forward = Vector3.Lerp(transform.forward, direccion.normalized, velocidad * Time.deltaTime*5);
+            transform.Rotate(Vector3.up * velocidadRotacion * Time.deltaTime * j2.x);
+            t = Mathf.Clamp(t + j2.y * Time.deltaTime * velocidadRotacionCamera, 0f, 1f);
+            rotaCamera.localEulerAngles = Vector3.right * Mathf.Lerp(angulos.x, angulos.y, t);
         }       
     }
 }
