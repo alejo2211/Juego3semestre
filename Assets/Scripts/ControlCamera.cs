@@ -15,6 +15,13 @@ public class ControlCamera : MonoBehaviour
     public Image mira;
     public Color colorNormal;
     public Color colorApuntando;
+    public static bool isApuntando;
+    public static ControlCamera controlCamera;
+
+    private void Awake()
+    {
+        controlCamera = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -31,9 +38,11 @@ public class ControlCamera : MonoBehaviour
         {
             target = apuntando;
             mira.color = Color.Lerp(mira.color, colorApuntando, velocidad * Time.deltaTime);
+            isApuntando = true;
         }
         else
         {
+            isApuntando = false;
             target = normal;
             mira.color = Color.Lerp(mira.color, colorNormal, velocidad * Time.deltaTime);
         }

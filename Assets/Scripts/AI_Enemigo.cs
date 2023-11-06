@@ -32,6 +32,8 @@ public class AI_Enemigo : MonoBehaviour
                 E_Atacar();
                 break;
             case Estado.muerto:
+                agente.enabled = false;
+                break;
             default:
                 break;
         }
@@ -89,11 +91,13 @@ public class AI_Enemigo : MonoBehaviour
             vidaEnemigo--;
             if (vidaEnemigo==0)
             {
-            muerteOrcoAudio.Play();
-            GameManager.singleton.ContadorEnemigos();
-            animator.SetTrigger("muerto");
-            Destroy(gameObject,2);
-            Destroy(other.gameObject);
+                muerteOrcoAudio.Play();
+                GameManager.singleton.ContadorEnemigos();
+                animator.SetTrigger("muerto");
+                Destroy(gameObject,2);
+                Destroy(other.gameObject);
+                CambiarEstado(Estado.muerto);
+
             }
         }
         

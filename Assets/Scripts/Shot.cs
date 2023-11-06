@@ -48,8 +48,26 @@ public class Shot : MonoBehaviour
             audioDisparo.Play();
             GameObject newBullet;
             newBullet = Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
-            newBullet.GetComponent<Rigidbody>().AddForce(spawnPoint.forward * shotForce);
-            newBullet.GetComponent<Rigidbody>().AddForce(spawnPoint.forward * shotForce);
+            
+            if (ControlCamera.isApuntando)
+            {
+                Ray ray = new Ray(ControlCamera.controlCamera.transform.position, ControlCamera.controlCamera.transform.forward);
+                RaycastHit hit;
+                if (Physics.Raycast(ray, out hit, 30f))
+                {
+                    Vector3 direccion = hit.point - spawnPoint.position;
+                    newBullet.GetComponent<Rigidbody>().AddForce(direccion.normalized * shotForce * 2);
+                }
+                else
+                {
+                    newBullet.GetComponent<Rigidbody>().AddForce(spawnPoint.forward * shotForce * 2);
+                }
+            }
+            else
+            {
+                newBullet.GetComponent<Rigidbody>().AddForce(spawnPoint.forward * shotForce * 2);
+            }
+            
             shotRateTime = Time.time + shotRate;
             Destroy(newBullet, 5);
         }
