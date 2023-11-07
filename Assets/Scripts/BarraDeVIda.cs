@@ -34,6 +34,7 @@ public class BarraDeVIda : MonoBehaviour
         if (vidaActual==0)
         {
             animatorMuerte.SetTrigger("muerteElfo");
+
             StartCoroutine(MuerteEscena());
         }
 

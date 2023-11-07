@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public Transform[] spawnPoints;
     public int oleadas;
     public AudioSource audioOrco;
+    public Text contadorOleadas;
     public void Awake()
     {
         singleton = this;
@@ -52,6 +53,7 @@ public class GameManager : MonoBehaviour
             audioOrco.Play();
             mensajePanel.SetActive(true);
             oleadas++;
+            contadorOleadas.text = oleadas.ToString();
 
         }
         contadorEnemigos.text = Puntosenemigos.ToString();

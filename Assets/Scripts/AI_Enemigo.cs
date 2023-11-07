@@ -15,6 +15,7 @@ public class AI_Enemigo : MonoBehaviour
     public float distanciaAtacar;
     public float vidaEnemigo;
     public AudioSource muerteOrcoAudio;
+    public AudioSource audioHit;
     private void Start()
     {
     }
@@ -88,7 +89,8 @@ public class AI_Enemigo : MonoBehaviour
     {
         if (other.CompareTag("bala"))
         {
-            vidaEnemigo--;
+                audioHit.Play();
+                vidaEnemigo--;
             if (vidaEnemigo==0)
             {
                 muerteOrcoAudio.Play();

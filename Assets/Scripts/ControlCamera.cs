@@ -17,6 +17,7 @@ public class ControlCamera : MonoBehaviour
     public Color colorApuntando;
     public static bool isApuntando;
     public static ControlCamera controlCamera;
+    public Animator animacionApuntar;
 
     private void Awake()
     {
@@ -36,15 +37,18 @@ public class ControlCamera : MonoBehaviour
         transform.rotation = Quaternion.Lerp(transform.rotation, target.rotation, velocidad * Time.deltaTime);
         if (botonApuntar.action.IsPressed())
         {
+            animacionApuntar.SetBool("Apuntando",true);
             target = apuntando;
             mira.color = Color.Lerp(mira.color, colorApuntando, velocidad * Time.deltaTime);
             isApuntando = true;
         }
         else
         {
+            animacionApuntar.SetBool("Apuntando",false);
             isApuntando = false;
             target = normal;
             mira.color = Color.Lerp(mira.color, colorNormal, velocidad * Time.deltaTime);
+
         }
     }
 }
