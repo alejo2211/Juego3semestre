@@ -1143,7 +1143,7 @@ MonoBehaviour:
   inIdle: 1
   estado: 0
   distanciaAtacar: 1.2
-  vidaEnemigo: 3
+  vidaEnemigo: 2
   muerteOrcoAudio: {fileID: 5414764221293139889}
   audioHit: {fileID: 5046480064166538639}
 --- !u!195 &1404734341637528675

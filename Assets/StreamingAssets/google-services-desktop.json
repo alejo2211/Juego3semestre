@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "739715230502",
+    "firebase_url": "https://elvesurvivor-default-rtdb.firebaseio.com",
+    "project_id": "elvesurvivor",
+    "storage_bucket": "elvesurvivor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:739715230502:android:738a4257f1985508752fe7",
+        "android_client_info": {
+          "package_name": "com.EstudiantesCesde.ElvesSurvivor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjQP1HtkbgT1caSwz9D3uVHyC_rFH-z6Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
