@@ -20,6 +20,14 @@ public class GameManager : MonoBehaviour
     {
         singleton = this;
     }
+
+    private void Start()
+    {
+        if (true)
+        {
+
+        }
+    }
     public void StartOleada()
     {
         StartCoroutine(SpawEnemies(orcosTotales));
@@ -28,8 +36,7 @@ public class GameManager : MonoBehaviour
     }
 
     IEnumerator SpawEnemies(int enemies)
-    {
-
+    {      
         yield return new WaitForSeconds(2);
         mensajePanel.SetActive(false);
         for (int orcos = 0; orcos < orcosTotales; orcos++)
