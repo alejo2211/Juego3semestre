@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     {
         singleton = this;
     }
-    private void Start()
+    public void StartOleada()
     {
         StartCoroutine(SpawEnemies(orcosTotales));
         audioOrco.Play();
@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
 
     public void ContadorEnemigos()
     {
+
         Puntosenemigos++;
         if (Puntosenemigos == orcosObjetivos)
         {

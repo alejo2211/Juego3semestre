@@ -17,8 +17,16 @@ public class PlayerController : MonoBehaviour
     {
        
     }
-  
 
-   
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag=="Baculo")
+        {
+            GameManager gm = GameObject.Find("Componentes/Morgoth").GetComponent<GameManager>();
+            gm.StartOleada();
+
+        }
+    }
 
 }
