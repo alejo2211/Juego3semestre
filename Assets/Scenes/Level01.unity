@@ -20023,12 +20023,6 @@ CapsuleCollider:
   m_Height: 4.293295
   m_Direction: 1
   m_Center: {x: 0.0000000014535761, y: 0.3466499, z: -0.000000006408991}
---- !u!4 &1008523620 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 72e55f24689a29d4ba8f2e5ab7f73e58,
-    type: 3}
-  m_PrefabInstance: {fileID: 500207800}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1008523621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41537,12 +41531,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2403243804211859077}
-  m_LocalRotation: {x: 0.48374382, y: 0.22100551, z: -0.8427905, w: 0.082781345}
-  m_LocalPosition: {x: 0.22, y: -0.63, z: -0.23}
-  m_LocalScale: {x: 4.848208, y: 5.057623, z: 4.899785}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.26, y: -0.461, z: -0.01}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1008523620}
+  m_Father: {fileID: 1745721526}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2403243804211859077
