@@ -8,8 +8,10 @@ public class GameManager : MonoBehaviour
     public static GameManager singleton;
     public Text contadorEnemigos;
     public int Puntosenemigos;
+    public int moneda;
+    public int orcoMoneda=50;
+    public Text contadorMonedas;
     public GameObject mensajePanel;
-    public int orcos;
     public int orcosTotales =10;
     public int orcosObjetivos = 10;
     public Transform[] spawnPoints;
@@ -23,10 +25,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        if (true)
-        {
 
-        }
     }
     public void StartOleada()
     {
@@ -51,8 +50,10 @@ public class GameManager : MonoBehaviour
 
     public void ContadorEnemigos()
     {
-
+        
         Puntosenemigos++;
+        moneda += orcoMoneda;
+        contadorMonedas.text = "Monedas: " + moneda.ToString();
         if (Puntosenemigos == orcosObjetivos)
         {
             orcosTotales = Mathf.RoundToInt(Mathf.Ceil(orcosTotales * 1.5f));
@@ -68,5 +69,8 @@ public class GameManager : MonoBehaviour
 
 
     }
+
+
+    
    
 }

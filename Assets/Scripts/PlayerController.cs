@@ -25,9 +25,12 @@ public class PlayerController : MonoBehaviour
         if (other.tag=="Baculo")
         {
             print("Baculo recogido");
-            GameManager gm = GameObject.Find("Componentes/Morgoth").GetComponent<GameManager>();
-            gm.StartOleada();
+            GameManager.singleton.StartOleada();
 
+        }
+        if (GameManager.singleton.moneda==800)
+        {
+            print("La puerta se puede abrir");
         }
     }
 
