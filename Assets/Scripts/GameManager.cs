@@ -15,6 +15,9 @@ public class GameManager : MonoBehaviour
     public int orcosTotales =10;
     public int orcosObjetivos = 10;
     public Transform[] spawnPoints;
+    public Transform[] spawnTroll;
+    public GameObject trollPrefab;
+
     public int oleadas;
     public AudioSource audioOrco;
     public Text contadorOleadas;
@@ -35,17 +38,26 @@ public class GameManager : MonoBehaviour
     }
 
     IEnumerator SpawEnemies(int enemies)
-    {      
-        yield return new WaitForSeconds(2);
-        mensajePanel.SetActive(false);
-        for (int orcos = 0; orcos < orcosTotales; orcos++)
+    {
+
+        if (oleadas%3==0)
         {
-            yield return new WaitForSeconds(2);
-            Vector3 pos;
-            pos = spawnPoints[Random.Range(0, spawnPoints.Length)].position; 
-            GameObject newEnemy = Instantiate(Resources.Load("Enemigo"), pos, Quaternion.identity) as GameObject;
+            print("se va instanciar un troll");
         }
-        yield return new WaitForSeconds(3f);
+       
+        
+            yield return new WaitForSeconds(2);
+            mensajePanel.SetActive(false);
+            for (int orcos = 0; orcos < orcosTotales; orcos++)
+            {
+                yield return new WaitForSeconds(2);
+                Vector3 pos;
+                pos = spawnPoints[Random.Range(0, spawnPoints.Length)].position;
+                GameObject newEnemy = Instantiate(Resources.Load("Enemigo"), pos, Quaternion.identity) as GameObject;
+            }
+            yield return new WaitForSeconds(3f);
+        
+        
     }
 
     public void ContadorEnemigos()

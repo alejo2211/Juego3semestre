@@ -41,7 +41,7 @@ public class Shot : MonoBehaviour
 
     public void Disparar(InputAction.CallbackContext context)
     {
-        print("disparando");
+        //print("disparando");
        
         if (Time.time > shotRateTime)
         {

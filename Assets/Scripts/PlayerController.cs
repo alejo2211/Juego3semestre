@@ -24,13 +24,13 @@ public class PlayerController : MonoBehaviour
     {
         if (other.tag=="Baculo")
         {
-            print("Baculo recogido");
+            //print("Baculo recogido");
             GameManager.singleton.StartOleada();
 
         }
         if (GameManager.singleton.moneda==800)
         {
-            print("La puerta se puede abrir");
+            //print("La puerta se puede abrir");
         }
     }
 
