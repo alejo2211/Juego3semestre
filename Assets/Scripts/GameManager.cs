@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public Transform[] spawnPoints;
     public Transform[] spawnTroll;
     public GameObject trollPrefab;
-
+    public bool puertaAbierta;
     public int oleadas;
     public AudioSource audioOrco;
     public Text contadorOleadas;
@@ -40,9 +40,11 @@ public class GameManager : MonoBehaviour
     IEnumerator SpawEnemies(int enemies)
     {
 
-        if (oleadas%3==0)
+        if ((oleadas+1)%3==0)
         {
             print("se va instanciar un troll");
+            Instantiate(trollPrefab, spawnTroll[Random.Range(0, spawnTroll.Length)].position,Quaternion.identity);
+
         }
        
         
@@ -81,7 +83,14 @@ public class GameManager : MonoBehaviour
 
 
     }
+    public void AbrirPuertas()
+    {
+        if (moneda>=800)
+        {
+            
+        }
 
+    }
 
     
    

@@ -16,6 +16,7 @@ public class AI_Enemigo : MonoBehaviour
     public float vidaEnemigo;
     public AudioSource muerteOrcoAudio;
     public AudioSource audioHit;
+    public GameObject particulasGolpe;
     private void Start()
     {
     }
@@ -89,6 +90,7 @@ public class AI_Enemigo : MonoBehaviour
     {
         if (other.CompareTag("bala"))
         {
+                Instantiate(particulasGolpe,other.transform.position,other.transform.rotation);
                 audioHit.Play();
                 vidaEnemigo--;
             if (vidaEnemigo==0)

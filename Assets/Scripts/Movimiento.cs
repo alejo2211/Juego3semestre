@@ -38,8 +38,8 @@ public class Movimiento : MonoBehaviour
         movimiento.y = 0;
         movimiento = transform.rotation * movimiento;
         transform.Translate( movimiento * velocidad * Time.deltaTime,Space.World);
-        animator.SetFloat("Xspeed", movimiento.x);
-        animator.SetFloat("Yspeed", movimiento.z);
+        animator.SetFloat("Xspeed", j1.x);
+        animator.SetFloat("Yspeed", j1.y);
         direccion.x = j2.x;
         direccion.z= j2.y;
 
@@ -49,7 +49,7 @@ public class Movimiento : MonoBehaviour
         if (direccion.sqrMagnitude>0)
         {
             transform.Rotate(Vector3.up * velocidadRotacion * Time.deltaTime * j2.x);
-            t = Mathf.Clamp(t + j2.y * Time.deltaTime * velocidadRotacionCamera, 0f, 1f);
+            t = Mathf.Clamp(t - j2.y * Time.deltaTime * velocidadRotacionCamera, 0f, 1f);
             rotaCamera.localEulerAngles = Vector3.right * Mathf.Lerp(angulos.x, angulos.y, t);
         }       
     }
