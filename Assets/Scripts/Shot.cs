@@ -18,30 +18,19 @@ public class Shot : MonoBehaviour
         dispararBoton.action.performed += Disparar;
 
         dispararBoton.action.Enable();
+
+        
+        
     }
     void Update()
     {
 
-        //if (!presionado)
-        //{
-        //    if (dispararBoton.action.ReadValue<float>()>0.5)
-        //    {
-        //        Disparar();
-        //        presionado = true;
-        //    }
-        //}
-        //else
-        //{
-        //    if (dispararBoton.action.ReadValue<float>()<0.1)
-        //    {
-        //        presionado = false;
-        //    }
-        //}
+
     }
 
     public void Disparar(InputAction.CallbackContext context)
     {
-        //print("disparando");
+        
        
         if (Time.time > shotRateTime && GameManager.singleton.armado)
         {
@@ -71,7 +60,13 @@ public class Shot : MonoBehaviour
             shotRateTime = Time.time + shotRate;
             Destroy(newBullet, 5);
         }
+      
+        
+
     }
+
+
+   
         
 
 }

@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
         contadorMonedas.text = "Monedas: " + moneda.ToString();
         if (Puntosenemigos == orcosObjetivos)
         {
-            orcosTotales = Mathf.RoundToInt(Mathf.Ceil(orcosTotales * 1.5f));
+            orcosTotales = Mathf.RoundToInt(Mathf.Ceil(orcosTotales * 0.5f));
             orcosObjetivos += orcosTotales;
             StartCoroutine(SpawEnemies(orcosTotales));
             audioOrco.Play();

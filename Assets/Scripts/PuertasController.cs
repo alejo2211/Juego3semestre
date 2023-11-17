@@ -20,7 +20,10 @@ public class PuertasController : MonoBehaviour
             {
                 GameManager.singleton.GastarMondeas(monedasPuerta);
                 animacionPuerta.SetBool("PuertaAbierta", true);
+                
             }
         }
+
+        
     }
 }
