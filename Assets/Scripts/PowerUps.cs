@@ -16,6 +16,8 @@ public class PowerUps : MonoBehaviour
     public Button btDañoRapido;
     public Button btMunicion;
     public InputActionProperty flechaArriba;
+    public InputActionProperty botonx;
+    
     public int vida=15;
     private void Awake()
     {
@@ -30,6 +32,8 @@ public class PowerUps : MonoBehaviour
     {
         flechaArriba.action.performed += EjecutarVidaFlecha;
         flechaArriba.action.Enable();
+        botonx.action.performed += EjecutarBalasDobles;
+        botonx.action.Enable();
     }
     public void ActivarVida()
     {
@@ -50,7 +54,32 @@ public class PowerUps : MonoBehaviour
         BarraDeVIda.barraVida.RecibirGolpe(-vida);
         
     }
-    
-    
+
+    public void ActivarBalasDobles()
+    {
+        dañoDobleActiva = true;
+        btDañoDoble.interactable = true;
+
+    }
+
+    public void EjecutarBalasDobles()
+    {
+
+        dañoDobleActiva = false;
+        btDañoDoble.interactable = false;
+        
+
+    }
+
+    public void EjecutarBalasDobles(InputAction.CallbackContext balas)
+    {
+        print("balas dobles");
+        EjecutarBalasDobles();
+
+    }
+
+
+
+
 
 }

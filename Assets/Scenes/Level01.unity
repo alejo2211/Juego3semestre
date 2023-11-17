@@ -22649,7 +22649,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 145, y: 78}
+  m_AnchoredPosition: {x: -50.6, y: 78}
   m_SizeDelta: {x: 140.66, y: 117.86}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &790432534
@@ -22695,7 +22695,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 790432535}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1579791107}
+        m_TargetAssemblyTypeName: PowerUps, Assembly-CSharp
+        m_MethodName: EjecutarBalasDobles
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &790432535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27595,7 +27607,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -31, y: 78}
+  m_AnchoredPosition: {x: 115, y: 78}
   m_SizeDelta: {x: 140.66, y: 117.86}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &963896046
@@ -44348,6 +44360,32 @@ MonoBehaviour:
   "btDa\xF1oDoble": {fileID: 790432534}
   "btDa\xF1oRapido": {fileID: 963896046}
   btMunicion: {fileID: 1395574130}
+  flechaArriba:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Flecha Arriba
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 854d804f-1b16-47ce-a18d-dc0c710443c2
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 2327060197354145221, guid: 598dd0e2140e2f844a5115fa411b020e,
+      type: 3}
+  botonx:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Botonx
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: eb6db04b-23ee-4e99-9074-1e34b5215f60
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 2204367817105518949, guid: 598dd0e2140e2f844a5115fa411b020e,
+      type: 3}
   vida: 15
 --- !u!4 &1579791108
 Transform:
@@ -56605,6 +56643,7 @@ GameObject:
   - component: {fileID: 2053401988}
   - component: {fileID: 2053401987}
   - component: {fileID: 2053401986}
+  - component: {fileID: 2053401990}
   m_Layer: 0
   m_Name: Balas Doble
   m_TagString: Untagged
@@ -56690,6 +56729,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 15.396, z: 0}
+--- !u!114 &2053401990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053401984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbce39f2e6a07e74682517a9c102e20d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2055184446
 GameObject:
   m_ObjectHideFlags: 0
