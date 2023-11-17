@@ -16,7 +16,11 @@ public class PuertasController : MonoBehaviour
             {
                 print("Faltan Monedas para abrir la puerta");
             }
-
+            if (GameManager.singleton.moneda>=monedasPuerta)
+            {
+                GameManager.singleton.GastarMondeas(monedasPuerta);
+                animacionPuerta.SetBool("PuertaAbierta", true);
+            }
         }
     }
 }

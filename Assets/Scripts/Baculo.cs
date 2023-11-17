@@ -6,7 +6,7 @@ public class Baculo : MonoBehaviour
 {
     public GameObject arma;
     public Animator aniArma;
-
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -14,6 +14,7 @@ public class Baculo : MonoBehaviour
             arma.SetActive(true);
             gameObject.SetActive(false);
             aniArma.SetBool("Arma", true);
+            GameManager.singleton.armado = true;
         }
     }
 }

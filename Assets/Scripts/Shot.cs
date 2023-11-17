@@ -43,7 +43,7 @@ public class Shot : MonoBehaviour
     {
         //print("disparando");
        
-        if (Time.time > shotRateTime)
+        if (Time.time > shotRateTime && GameManager.singleton.armado)
         {
             audioDisparo.Play();
             GameObject newBullet;

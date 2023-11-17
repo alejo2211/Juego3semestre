@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public int oleadas;
     public AudioSource audioOrco;
     public Text contadorOleadas;
+    public bool armado;
     public void Awake()
     {
         singleton = this;
@@ -83,12 +84,14 @@ public class GameManager : MonoBehaviour
 
 
     }
-    public void AbrirPuertas()
+    public void GastarMondeas(int cuanto)
     {
-        if (moneda>=800)
+        moneda -= cuanto;
+        if (moneda<=0)
         {
-            
+            moneda = 0;
         }
+        contadorMonedas.text = "Monedas: " + moneda.ToString();
 
     }
 

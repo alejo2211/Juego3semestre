@@ -12,11 +12,12 @@ TagManager:
   - ground
   - Menu
   - Baculo
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - minimapa
   - Water
   - UI
   - 

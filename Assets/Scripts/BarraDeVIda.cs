@@ -5,13 +5,18 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class BarraDeVIda : MonoBehaviour
 {
+    public static BarraDeVIda barraVida;
     public Image barraDeVida;
     public float vidaActual=100;
     public float vidaMaxima=100;
     public Text saludTexto;
     public CanvasGroup sangre;
     public Animator animatorMuerte;
-    
+
+    private void Awake()
+    {
+        barraVida = this;
+    }
     void Update()
     {
         if (sangre.alpha>0)
@@ -30,12 +35,17 @@ public class BarraDeVIda : MonoBehaviour
 
     public void RecibirGolpe(float golpe)
     {
+        
         vidaActual -= golpe;
         if (vidaActual==0)
         {
             animatorMuerte.SetTrigger("muerteElfo");
 
             StartCoroutine(MuerteEscena());
+        }
+        else if (vidaActual>vidaMaxima)
+        {
+            vidaActual = vidaMaxima;
         }
 
         sangre.alpha = 1;

@@ -90,9 +90,10 @@ public class AI_Enemigo : MonoBehaviour
     {
         if (other.CompareTag("bala"))
         {
-                Instantiate(particulasGolpe,other.transform.position,other.transform.rotation);
-                audioHit.Play();
-                vidaEnemigo--;
+            Instantiate(particulasGolpe,other.transform.position,other.transform.rotation);
+            audioHit.Play();
+            vidaEnemigo--;
+            Destroy(other.gameObject);
             if (vidaEnemigo==0)
             {
                 muerteOrcoAudio.Play();
