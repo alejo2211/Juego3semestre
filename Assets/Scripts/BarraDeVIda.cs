@@ -12,6 +12,7 @@ public class BarraDeVIda : MonoBehaviour
     public Text saludTexto;
     public CanvasGroup sangre;
     public Animator animatorMuerte;
+    public GameObject panelGameOver;
 
     private void Awake()
     {
@@ -40,21 +41,27 @@ public class BarraDeVIda : MonoBehaviour
         if (vidaActual==0)
         {
             animatorMuerte.SetTrigger("muerteElfo");
-
-            StartCoroutine(MuerteEscena());
+            Pause();
+            panelGameOver.SetActive(true);  
+            
         }
         else if (vidaActual>vidaMaxima)
         {
             vidaActual = vidaMaxima;
         }
-
         sangre.alpha = 1;
     }
 
-    IEnumerator MuerteEscena()
+    public void Pause()
     {
-        yield return new WaitForSeconds(4f);
-        SceneManager.LoadScene("GameOver");
+        if (Time.timeScale == 1)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
     }
 }
 

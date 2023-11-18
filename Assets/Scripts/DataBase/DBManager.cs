@@ -61,8 +61,8 @@ public class DBManager : MonoBehaviour
             {
                 Debug.Log("Signed out " + user.UserId);
                 panelInicio.SetActive(true);
-                panelRegitro.SetActive(true);
-                panelWait.SetActive(true);
+                panelRegitro.SetActive(false);
+                panelWait.SetActive(false);
                 PanelGame.SetActive(false);
             }
             user = auth.CurrentUser;
@@ -162,6 +162,7 @@ public class DBManager : MonoBehaviour
             user = LoginTask.Result.User;
             panelInicio.SetActive(false);
             panelRegitro.SetActive(false);
+            MusicaManager.musicaManager.CambiarMusica(1);
             panelWait.SetActive(false);
             PanelGame.SetActive(true);
         }
@@ -214,7 +215,8 @@ public class DBManager : MonoBehaviour
         auth.SignOut();
         //----------borrar al exportar
         panelInicio.SetActive(true);
-        panelRegitro.SetActive(true);
+        MusicaManager.musicaManager.CambiarMusica(0);
+        panelRegitro.SetActive(false);
         panelWait.SetActive(false);
         PanelGame.SetActive(false);
     }
