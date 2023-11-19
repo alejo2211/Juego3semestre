@@ -10,6 +10,7 @@ public class PowerUps : MonoBehaviour
     public bool dañoDobleActiva;
     public bool dañoRapidoActiva;
     public bool municionActiva;
+    public bool temporadaDañoDoble;
     public Button btVida;
     public Button btDañoDoble;
     public Button btDañoRapido;
@@ -18,6 +19,8 @@ public class PowerUps : MonoBehaviour
     public InputActionProperty botonIzquierdo;
     public InputActionProperty botonAbajo;
     public InputActionProperty botonDerecho;
+    public Image imTiempoDañoDoble;
+    public Image imTiempoDañoRapido;
     public int vida=15;
     private void Awake()
     {
@@ -49,9 +52,13 @@ public class PowerUps : MonoBehaviour
     }
     public void EjecutarVida()
     {
-        vidaActiva = false;
-        btVida.interactable = false;
-        BarraDeVIda.barraVida.RecibirGolpe(-vida);
+        if (vidaActiva)
+        {
+            vidaActiva = false;
+            btVida.interactable = false;
+            BarraDeVIda.barraVida.RecibirGolpe(-vida);
+        }
+
     }
     public void ActivarBalasDobles()
     {
@@ -61,9 +68,26 @@ public class PowerUps : MonoBehaviour
     }
     public void EjecutarBalasDobles()
     {
-        dañoDobleActiva = false;
-        btDañoDoble.interactable = false;
-        
+        if (dañoDobleActiva)
+        {
+            dañoDobleActiva = false;
+            btDañoDoble.interactable = false;
+            temporadaDañoDoble = true;
+            StartCoroutine(DesactivarTemporadaDoble());
+
+        }
+    }
+    public IEnumerator DesactivarTemporadaDoble()
+    {
+        float tiempo = 8;
+
+        for (int i = 20; i >= 0; i--)
+        {
+
+            imTiempoDañoDoble.fillAmount = i / 20f;
+            yield return new WaitForSeconds((tiempo/20f));
+        }
+        temporadaDañoDoble = false;
     }
     public void EjecutarBalasDobles(InputAction.CallbackContext balas)
     {
@@ -79,8 +103,18 @@ public class PowerUps : MonoBehaviour
 
     public void EjecutandoBalasRapidas()
     {
-        dañoRapidoActiva = false;
-        btDañoRapido.interactable = false;
+        if (dañoRapidoActiva)
+        {
+            dañoRapidoActiva = false;
+            btDañoRapido.interactable = false;
+            PlayerController.singleton.shot.modificador = 0.5f;
+            Invoke("DesactivarBalasDobles", 5f);
+        }
+
+    }
+    void DesactivarBalasDobles()
+    {
+        PlayerController.singleton.shot.modificador = 1;
     }
 
     public void EjecutarBalasRapidas(InputAction.CallbackContext rapidas)

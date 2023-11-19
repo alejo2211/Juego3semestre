@@ -93,8 +93,12 @@ public class AI_Enemigo : MonoBehaviour
             Instantiate(particulasGolpe,other.transform.position,other.transform.rotation);
             audioHit.Play();
             vidaEnemigo--;
+            if (PowerUps.powerUps.temporadaDañoDoble)
+            {
+                vidaEnemigo--;
+            }
             Destroy(other.gameObject);
-            if (vidaEnemigo==0)
+            if (vidaEnemigo<=0)
             {
                 muerteOrcoAudio.Play();
                 GameManager.singleton.ContadorEnemigos();

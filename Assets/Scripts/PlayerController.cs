@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
 {
     public static PlayerController singleton;
     public bool armado;
+    public Shot shot;
 
     private void Awake()
     {

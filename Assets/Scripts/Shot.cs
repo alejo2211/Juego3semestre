@@ -9,6 +9,7 @@ public class Shot : MonoBehaviour
     public float shotForce = 1500f;
     public float shotRate = 0.5f;
     private float shotRateTime = 0;
+    public float modificador;
     public InputActionProperty dispararBoton;
     public bool presionado;
     public AudioSource audioDisparo;
@@ -18,6 +19,7 @@ public class Shot : MonoBehaviour
         dispararBoton.action.performed += Disparar;
 
         dispararBoton.action.Enable();
+        modificador = 1;
 
         
         
@@ -57,7 +59,7 @@ public class Shot : MonoBehaviour
                 newBullet.GetComponent<Rigidbody>().AddForce(spawnPoint.forward * shotForce * 2);
             }
             
-            shotRateTime = Time.time + shotRate;
+            shotRateTime = Time.time + shotRate*modificador;
             Destroy(newBullet, 5);
         }
       
