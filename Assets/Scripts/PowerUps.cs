@@ -11,6 +11,7 @@ public class PowerUps : MonoBehaviour
     public bool dañoRapidoActiva;
     public bool municionActiva;
     public bool temporadaDañoDoble;
+    public bool temporadaRapida;
     public Button btVida;
     public Button btDañoDoble;
     public Button btDañoRapido;
@@ -21,6 +22,7 @@ public class PowerUps : MonoBehaviour
     public InputActionProperty botonDerecho;
     public Image imTiempoDañoDoble;
     public Image imTiempoDañoRapido;
+    
     public int vida=15;
     private void Awake()
     {
@@ -107,10 +109,24 @@ public class PowerUps : MonoBehaviour
         {
             dañoRapidoActiva = false;
             btDañoRapido.interactable = false;
+            temporadaRapida = true;
             PlayerController.singleton.shot.modificador = 0.5f;
             Invoke("DesactivarBalasDobles", 5f);
+            StartCoroutine(DesactivarTemporadaRapida());
         }
 
+    }
+    public IEnumerator DesactivarTemporadaRapida()
+    {
+        float tiempo = 8;
+
+        for (int i = 20; i >= 0; i--)
+        {
+
+            imTiempoDañoRapido.fillAmount = i / 20f;
+            yield return new WaitForSeconds((tiempo / 20f));
+        }
+        temporadaRapida = false;
     }
     void DesactivarBalasDobles()
     {
