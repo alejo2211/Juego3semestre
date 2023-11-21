@@ -25,6 +25,10 @@ public class PowerUps : MonoBehaviour
     public Image imTiempoDañoRapido;
     public int vida=15;
     public TextMeshProUGUI municionTexto;
+    public GameObject[] objeto;
+    public Transform[] referenciaPowerUps;
+    public float tiempoPowerUps = 2f;
+    public int cantidadPowerUps;
     private void Awake()
     {
         powerUps = this;
@@ -43,6 +47,18 @@ public class PowerUps : MonoBehaviour
         botonAbajo.action.Enable();
         botonDerecho.action.performed += EjecutarMunicion;
         botonDerecho.action.Enable();
+        InvokeRepeating("InstanciarPowerUps", 0f, tiempoPowerUps);
+    }
+
+    public void InstanciarPowerUps()
+    {
+        for (int i = 0; i < cantidadPowerUps; i++)
+        {
+            int n = Random.Range(0, objeto.Length);
+            Instantiate(objeto[n], referenciaPowerUps[n].transform.position, referenciaPowerUps[n].rotation, referenciaPowerUps[n]);
+
+
+        }
     }
     public void ActivarVida()
     {
