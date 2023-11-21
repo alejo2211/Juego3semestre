@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using TMPro;
 public class PowerUps : MonoBehaviour
 {
     public static PowerUps powerUps;
@@ -22,8 +23,8 @@ public class PowerUps : MonoBehaviour
     public InputActionProperty botonDerecho;
     public Image imTiempoDañoDoble;
     public Image imTiempoDañoRapido;
-    
     public int vida=15;
+    public TextMeshProUGUI municionTexto;
     private void Awake()
     {
         powerUps = this;
@@ -155,6 +156,11 @@ public class PowerUps : MonoBehaviour
     {
         print("municion");
         EjecutandoMunicion();
+    }
+
+    public void ContadorMunicion()
+    {
+        municionTexto.text = "Tu magia: " + Shot.shot.cantidadBalas.ToString();
     }
 
 

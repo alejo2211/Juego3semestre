@@ -9,6 +9,7 @@ public class Municion : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             PowerUps.powerUps.ActivarMunicion();
+            Shot.shot.AumentarMunicion();
         }
     }
 }
