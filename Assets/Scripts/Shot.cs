@@ -14,7 +14,7 @@ public class Shot : MonoBehaviour
     public InputActionProperty dispararBoton;
     public bool presionado;
     public AudioSource audioDisparo;
-    public int cantidadBalas=10;
+    public int cantidadBalas=30;
 
     private void Awake()
     {
@@ -23,12 +23,9 @@ public class Shot : MonoBehaviour
     private void Start()
     {
         dispararBoton.action.performed += Disparar;
-
         dispararBoton.action.Enable();
         modificador = 1;
-        cantidadBalas = 10;
-        
-        
+        cantidadBalas = 30;
     }
     void Update()
     {

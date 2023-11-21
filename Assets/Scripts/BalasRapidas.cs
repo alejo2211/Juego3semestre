@@ -9,6 +9,7 @@ public class BalasRapidas : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             PowerUps.powerUps.ActivarBalasRapidas();
+            Destroy(gameObject);
         }
     }
 }

@@ -9,7 +9,7 @@ public class VidaUp : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             PowerUps.powerUps.ActivarVida();
-
+            Destroy(gameObject);
         }
     }
 }

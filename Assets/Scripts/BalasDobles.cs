@@ -9,8 +9,7 @@ public class BalasDobles : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             PowerUps.powerUps.ActivarBalasDobles();
-
-
+            Destroy(gameObject);
         }
     }
 }

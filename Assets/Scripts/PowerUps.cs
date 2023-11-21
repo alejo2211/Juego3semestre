@@ -176,7 +176,7 @@ public class PowerUps : MonoBehaviour
 
     public void ContadorMunicion()
     {
-        municionTexto.text =   Shot.shot.cantidadBalas.ToString();
+        municionTexto.text ="Tu magia: "+Shot.shot.cantidadBalas.ToString();
     }
 
 

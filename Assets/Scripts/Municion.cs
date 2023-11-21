@@ -10,6 +10,7 @@ public class Municion : MonoBehaviour
         {
             PowerUps.powerUps.ActivarMunicion();
             Shot.shot.AumentarMunicion();
+            Destroy(gameObject);
         }
     }
 }
