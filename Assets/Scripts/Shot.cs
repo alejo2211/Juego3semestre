@@ -44,6 +44,7 @@ public class Shot : MonoBehaviour
             if (Time.time > shotRateTime && GameManager.singleton.armado)
             {
                 cantidadBalas--;
+                PowerUps.powerUps.ContadorMunicion();
                 audioDisparo.Play();
                 GameObject newBullet;
                 newBullet = Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
