@@ -7,6 +7,7 @@ public class PuertasController : MonoBehaviour
     public int monedasPuerta;
     public bool puertaAbierta;
     public Animator animacionPuerta;
+    public GameObject panelPuerta;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -15,6 +16,7 @@ public class PuertasController : MonoBehaviour
             if (monedasPuerta>=GameManager.singleton.moneda)
             {
                 print("Faltan Monedas para abrir la puerta");
+                panelPuerta.SetActive(true);
             }
             if (GameManager.singleton.moneda>=monedasPuerta)
             {
@@ -25,5 +27,12 @@ public class PuertasController : MonoBehaviour
         }
 
         
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            panelPuerta.SetActive(false);
+        }
     }
 }

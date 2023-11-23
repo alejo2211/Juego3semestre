@@ -5,6 +5,7 @@ using UnityEngine;
 public class PuertaOrcos : MonoBehaviour
 {
     public int monedasPuerta;
+    public GameObject panelPuerta;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -12,6 +13,7 @@ public class PuertaOrcos : MonoBehaviour
             if (monedasPuerta >= GameManager.singleton.moneda)
             {
                 print("Faltan Monedas para abrir la puerta");
+                panelPuerta.SetActive(true);
             }
             if (GameManager.singleton.moneda >= monedasPuerta)
             {
@@ -19,6 +21,14 @@ public class PuertaOrcos : MonoBehaviour
                 Destroy(gameObject);
 
             }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            panelPuerta.SetActive(false);
         }
     }
 }
