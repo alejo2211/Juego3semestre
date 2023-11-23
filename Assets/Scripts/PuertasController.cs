@@ -8,6 +8,7 @@ public class PuertasController : MonoBehaviour
     public bool puertaAbierta;
     public Animator animacionPuerta;
     public GameObject panelPuerta;
+    public Collider puertaCollider;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,11 +18,18 @@ public class PuertasController : MonoBehaviour
             {
                 print("Faltan Monedas para abrir la puerta");
                 panelPuerta.SetActive(true);
+                if (puertaAbierta==true)
+                {
+                    panelPuerta.SetActive(false);
+                    Destroy(puertaCollider);
+                }
             }
             if (GameManager.singleton.moneda>=monedasPuerta)
             {
+                puertaAbierta = true;
                 GameManager.singleton.GastarMondeas(monedasPuerta);
                 animacionPuerta.SetBool("PuertaAbierta", true);
+                panelPuerta.SetActive(false);
                 
             }
         }
