@@ -1233,6 +1233,8 @@ MonoBehaviour:
   audioHit: {fileID: 5046480064166538639}
   particulasGolpe: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0,
     type: 3}
+  col: {fileID: 6597606170704450681}
+  rb: {fileID: 4954517776988656865}
 --- !u!195 &1404734341637528675
 NavMeshAgent:
   m_ObjectHideFlags: 0

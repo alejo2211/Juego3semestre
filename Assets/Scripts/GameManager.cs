@@ -29,7 +29,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-
+        contadorMonedas.text = "Monedas: " + moneda.ToString();
+        contadorEnemigos.text = "Enemigos derrotados: " + Puntosenemigos.ToString();
     }
     public void StartOleada()
     {
@@ -68,10 +69,9 @@ public class GameManager : MonoBehaviour
         
         Puntosenemigos++;
         moneda += orcoMoneda;
-        contadorMonedas.text = "Monedas: " + moneda.ToString();
         if (Puntosenemigos == orcosObjetivos)
         {
-            orcosTotales = Mathf.RoundToInt(Mathf.Ceil(orcosTotales * 0.5f));
+            orcosTotales = Mathf.RoundToInt(Mathf.Ceil(orcosTotales * 2f));
             orcosObjetivos += orcosTotales;
             StartCoroutine(SpawEnemies(orcosTotales));
             audioOrco.Play();
@@ -80,7 +80,8 @@ public class GameManager : MonoBehaviour
             contadorOleadas.text = oleadas.ToString();
 
         }
-        contadorEnemigos.text = Puntosenemigos.ToString();
+        contadorMonedas.text = "Monedas: " + moneda.ToString();
+        contadorEnemigos.text = "Enemigos derrotados: " + Puntosenemigos.ToString();
 
 
     }

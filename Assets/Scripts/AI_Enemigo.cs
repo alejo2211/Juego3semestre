@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 public class AI_Enemigo : MonoBehaviour
 {
     
@@ -13,12 +16,16 @@ public class AI_Enemigo : MonoBehaviour
     public bool inIdle;
     public Estado estado;
     public float distanciaAtacar;
+
     public float vidaEnemigo;
     public AudioSource muerteOrcoAudio;
     public AudioSource audioHit;
     public GameObject particulasGolpe;
+    public Collider col;
+    public Rigidbody rb;
     private void Start()
     {
+
     }
     
     
@@ -51,6 +58,7 @@ public class AI_Enemigo : MonoBehaviour
         if (cambioDistancia.magnitude<distanciaAtacar)
         {
             CambiarEstado(Estado.atacando);
+            agente.SetDestination(transform.position);
         }
 
 
@@ -59,6 +67,7 @@ public class AI_Enemigo : MonoBehaviour
     {
         Vector3 diferenciaAtacar;
         transform.LookAt(PlayerController.singleton.transform.position, Vector3.up);
+        transform.localEulerAngles = Vector3.up * transform.localEulerAngles.y;
         diferenciaAtacar = transform.position - PlayerController.singleton.transform.position; //dejar de atacar
         if (diferenciaAtacar.magnitude > distanciaAtacar + 0.5f)
         {
@@ -103,15 +112,27 @@ public class AI_Enemigo : MonoBehaviour
                 muerteOrcoAudio.Play();
                 GameManager.singleton.ContadorEnemigos();
                 animator.SetTrigger("muerto");
-                Destroy(gameObject,2);
+                Destroy(gameObject,10);
+                Destroy(col);
+                Destroy(rb);
                 Destroy(other.gameObject);
                 CambiarEstado(Estado.muerto);
 
             }
         }
+
+    }
+
+#if UNITY_EDITOR
+    private void OnDrawGizmosSelected()
+    {
+        Handles.color = Color.red;
+        Handles.DrawWireDisc(transform.position, transform.up, distanciaAtacar);
+        Handles.color = Color.green;
+        Handles.DrawWireDisc(transform.position, transform.up, distanciaAtacar+0.5f);
         
     }
-    
+#endif
     IEnumerator Idle()
     {
         yield return new WaitForSeconds(3);

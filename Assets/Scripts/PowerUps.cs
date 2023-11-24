@@ -55,7 +55,7 @@ public class PowerUps : MonoBehaviour
         for (int i = 0; i < cantidadPowerUps; i++)
         {
             int n = Random.Range(0, objeto.Length);
-            Instantiate(objeto[n], referenciaPowerUps[n].transform.position, referenciaPowerUps[n].rotation, referenciaPowerUps[n]);
+            Instantiate(objeto[n], referenciaPowerUps[n].transform.position, Quaternion.Euler(90,0,0), referenciaPowerUps[n]);
 
 
         }
