@@ -6,6 +6,7 @@ public class Baculo : MonoBehaviour
 {
     public GameObject arma;
     public Animator aniArma;
+    public GameObject particulasBaculo;
     
     private void OnTriggerEnter(Collider other)
     {

@@ -166,12 +166,14 @@ public class PowerUps : MonoBehaviour
     {
         municionActiva = false;
         btMunicion.interactable = false;
+        Shot.shot.AumentarMunicion();
     }
 
     public void EjecutarMunicion(InputAction.CallbackContext municion)
     {
         print("municion");
         EjecutandoMunicion();
+
     }
 
     public void ContadorMunicion()
